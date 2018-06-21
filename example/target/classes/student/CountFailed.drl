@@ -1,0 +1,33 @@
+//created on: Jun 21, 2018
+package student
+
+//list any import classes here.
+
+
+
+//declare any global variables here
+
+
+import com.sample.Student;
+
+rule "Count Failed Name"
+    salience 19
+    no-loop
+    ruleflow-group "CountFailed"
+    dialect "java"
+
+    when
+        $s: Student($name: name, passed == false)
+
+    then
+        System.out.println(String.format("name %s, failed", $name));
+        //failedCount++;
+        //failedNames.add($name);
+        //kcontext.getKieRuntime().setGlobal("failedCount", failedCount);
+        //kcontext.getKieRuntime().setGlobal("failedNames", failedNames);
+        // Integer count = (Integer)(kcontext.getKieRuntime().getGlobal("failed")) + 1;
+        // kcontext.getKieRuntime().setGlobal("failed", count);
+        // ArrayList<String> list = (ArrayList<String>)(kcontext.getKieRuntime().getGlobal("failedNames"));
+        // list.add($name);
+        // kcontext.getKieRuntime().setGlobal("failedNames", list);
+end

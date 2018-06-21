@@ -1,0 +1,28 @@
+//created on: Jun 21, 2018
+package student
+
+//list any import classes here.
+
+
+
+//declare any global variables here
+global java.lang.Integer passedCount
+global com.sample.Result globalResult
+
+import com.sample.Student;
+
+rule "Count Passed Name"
+    salience 9
+    ruleflow-group "CountPassed"
+    dialect "java"
+
+    when
+        $s: Student($name: name, passed == true)
+
+    then
+        System.out.println(String.format("name %s, passed", $name));
+        //passedCount = 5;
+        //System.out.println(passedCount + ".");
+        globalResult.setPassedCount(1);
+        //passedNames.add($name);
+end

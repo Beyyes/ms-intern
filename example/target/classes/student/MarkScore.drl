@@ -1,0 +1,28 @@
+//created on: Jun 21, 2018
+package student
+
+//list any import classes here.
+
+
+
+//declare any global variables here
+
+
+import com.sample.Student;
+
+rule "Mark Score"
+    salience 10
+    no-loop
+    ruleflow-group "MarkScore"
+    dialect "java"
+
+    when
+        $s: Student($score : score)
+
+    then 
+        System.out.println(String.format("MarkScore name %s, score %s", $s.getName(), $s.getScore()));
+        
+        modify($s) { 
+            setPassed($score >= 60); 
+        }
+end

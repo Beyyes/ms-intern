@@ -1,0 +1,26 @@
+//created on: Jun 21, 2018
+package student
+
+//list any import classes here.
+
+
+
+//declare any global variables here
+import com.sample.Result
+import com.sample.Student;
+
+rule "Merge Result"
+    salience 5
+    ruleflow-group "MergeResult"
+    when
+    then
+        // Integer passedCount = (Integer) kcontext.getKieRuntime().getGlobal("passed");
+        System.out.println("Merge Result passedCount:" + kcontext.getKieRuntime().getGlobal("passedCount"));
+        // Integer failedCount = (Integer) kcontext.getKieRuntime().getGlobal("failed");
+        //System.out.println("Merge Result passedCount:" + kcontext.getKieRuntime().getGlobal("failedCount"));
+        // ArrayList<String> passedN = (ArrayList<String>) kcontext.getKieRuntime().getGlobal("passedNames");
+        //System.out.println("Merge Result passedNames size:" + passedNames.size());
+        // ArrayList<String> failedN = (ArrayList<String>) kcontext.getKieRuntime().getGlobal("failedNames");
+        //System.out.println("Merge Result failedNames size:" + failedNames.size());
+        //insert(new Result(passedCount + failedCount, passedCount, passedNames, failedCount, failedNames));
+end
